@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DerumSoft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap" id="app">
+        <header>
+            <img src="./img/logo-patzi.png" width="100px" alt="">
+            <h1>Cursos Aprobados</h1>
+        </header>
+        <div class="form-container">
+            <input class="input-title" type="text" placeholder="Titulo del curso" v-model="title" required/>
+            <input class="input-time" type="number" placeholder="Horas" v-model="time" required/>
+            <button class="btn" v-on:click="saveCourse">+</button>
+        </div>
+        <div class="courses-container">            
+            <h3>Lista de Cursos</h3>
+            
+            <ol class="courses-list">
+                <p class="red" v-show = "!courses.length">Aun no has realizado cursos</p> 
+                <li class="upperCase" v-for="(course, i) in courses">{{i+1}}. {{ course.title + ' - '}} <span class="lowerCase">{{course.time + ' horas'}}</span></li>
+            </ol>
+        </div>
+        <hr/>
+        <div class="footer-courses">
+            <p>
+                Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+                <b>#NuncaParesDeAprender</b>
+            </p>            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
